@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="432.0" prefWidth="609.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <BorderPane prefHeight="379.0" prefWidth="554.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0">
+            <center>
+                <VBox alignment="CENTER" focusTraversable="true" prefHeight="298.0" prefWidth="430.0" BorderPane.alignment="CENTER">
+                    <children>
+                  <Label text="Welcome">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="45.0" prefWidth="468.0">
+                     <children>
+                        <TextField fx:id="emailTextField" alignment="TOP_CENTER" prefHeight="25.0" prefWidth="342.0" />
+                     </children>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </HBox>
+                  <HBox alignment="TOP_CENTER" prefHeight="48.0" prefWidth="468.0">
+                     <children>
+                        <PasswordField fx:id="passwordTextField" alignment="CENTER" prefHeight="25.0" prefWidth="342.0">
+                           <effect>
+                              <DropShadow />
+                           </effect></PasswordField>
+                     </children>
+                  </HBox>
+                        <Button fx:id="loginButton" alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pressLoginButton" text="Login" />
+                    </children>
+               <effect>
+                  <Glow />
+               </effect>
+                </VBox>
+            </center>
+         <top>
+            <Label fx:id="logoLabel" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" text="Private Expense Manager" textAlignment="CENTER" textFill="#220101" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Baskerville Old Face" size="32.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Label>
+         </top>
+         <bottom>
+            <VBox prefHeight="86.0" prefWidth="468.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="errorLabel" alignment="CENTER" textFill="RED" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="If you don't have an account, click here..." textFill="#0195ff">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </bottom>
+         <left>
+            <VBox alignment="CENTER" prefHeight="298.0" prefWidth="148.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER_RIGHT" text="Email:">
+                     <VBox.margin>
+                        <Insets bottom="15.0" right="-50.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" text="Password: ">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <VBox.margin>
+                        <Insets right="-50.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+               <BorderPane.margin>
+                  <Insets right="-20.0" />
+               </BorderPane.margin>
+            </VBox>
+         </left>
+         <right>
+            <VBox prefHeight="245.0" prefWidth="62.0" BorderPane.alignment="CENTER" />
+         </right>
+        </BorderPane>
+    </children>
+</AnchorPane>
