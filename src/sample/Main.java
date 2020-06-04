@@ -17,22 +17,22 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
 
         UserService userService = new UserService(new UserRepositoryImpl());
-        loader.setControllerFactory((Class<?> type) -> {
-            try {
-                // look for constructor taking MyService as a parameter
-                for (Constructor<?> c : type.getConstructors()) {
-                    if (c.getParameterCount() == 1) {
-                        if (c.getParameterTypes()[0] == UserService.class) {
-                            return c.newInstance(userService);
-                        }
-                    }
-                }
-                // didn't find appropriate constructor, just use default constructor:
-                return type.newInstance();
-            } catch (Exception exc) {
-                throw new RuntimeException(exc);
-            }
-        });
+//        loader.setControllerFactory((Class<?> type) -> {
+//            try {
+//                // look for constructor taking MyService as a parameter
+//                for (Constructor<?> c : type.getConstructors()) {
+//                    if (c.getParameterCount() == 1) {
+//                        if (c.getParameterTypes()[0] == UserService.class) {
+//                            return c.newInstance(userService);
+//                        }
+//                    }
+//                }
+//                // didn't find appropriate constructor, just use default constructor:
+//                return type.newInstance();
+//            } catch (Exception exc) {
+//                throw new RuntimeException(exc);
+//            }
+//        });
 
 
         Parent root = loader.load();

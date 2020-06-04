@@ -67,4 +67,28 @@ public class UserRepositoryImpl implements UserRepository {
 
         return null;
     }
+
+    @Override
+    public User getUserByEmail(String email) {
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM user WHERE email = ?");
+            preparedStatement.setString(1, email);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String firstName = resultSet.getString("first_name");
+                String lastName = resultSet.getString("last_name");
+                String password = resultSet.getString("password");
+
+                User user = new User(id, firstName, lastName, email, password);
+                return user;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 }

@@ -1,52 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" fx:controller="sample.register.RegisterController" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
-   <top>
-      <Label text="Register Form" BorderPane.alignment="CENTER">
-         <font>
-            <Font name="Baskerville Old Face" size="32.0" />
-         </font>
-      </Label>
-   </top>
-   <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
-            <HBox prefHeight="40.0" prefWidth="595.0">
+<AnchorPane prefHeight="377.0" prefWidth="565.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.register.RegisterController">
+   <children>
+      <BorderPane layoutX="-1.0" layoutY="-2.0" prefHeight="379.0" prefWidth="554.0">
+         <top>
+            <Label text="Registration Form" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Baskerville Old Face" size="32.0" />
+               </font>
+            </Label>
+         </top>
+         <left>
+            <VBox prefHeight="302.0" prefWidth="130.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label id="firstNameRegistration" contentDisplay="CENTER" prefHeight="17.0" prefWidth="58.0" text="FirstName:">
-                     <HBox.margin>
+                  <Label text="First Name:">
+                     <VBox.margin>
+                        <Insets left="65.0" top="50.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect></Label>
+                  <Label id="lastNameFieldRegistration" text="Last Name:">
+                     <VBox.margin>
+                        <Insets left="65.0" top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect></Label>
+                  <Label id="emailFieldRegistration" text="Email:">
+                     <VBox.margin>
+                        <Insets left="95.0" top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect></Label>
+                  <Label id="passwordFieldRegistration" text="Password:">
+                     <VBox.margin>
+                        <Insets left="71.0" top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect></Label>
+                  <Label id="confirmPassswordFieldRegistration" alignment="CENTER" text="Confirm Password:">
+                     <opaqueInsets>
                         <Insets />
-                     </HBox.margin></Label>
-                  <TextField alignment="TOP_CENTER" nodeOrientation="RIGHT_TO_LEFT" />
-               </children></HBox>
-            <HBox prefHeight="50.0" prefWidth="576.0">
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets left="23.0" top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect></Label>
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <VBox prefHeight="300.0" prefWidth="340.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label id="lastNameRegistration" text="LastName:" />
-                  <TextField />
-               </children></HBox>
-            <HBox prefHeight="51.0" prefWidth="597.0">
+                  <TextField fx:id="firstNameTextField">
+                     <VBox.margin>
+                        <Insets top="47.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="lastNameTextField">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="emailTextField">
+                     <VBox.margin>
+                        <Insets top="14.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="passwordTextField">
+                     <VBox.margin>
+                        <Insets top="14.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="confirmPasswordTextField">
+                     <VBox.margin>
+                        <Insets top="14.0" />
+                     </VBox.margin>
+                  </TextField>
+               </children></VBox>
+         </center>
+         <bottom>
+            <VBox alignment="CENTER" prefHeight="90.0" prefWidth="554.0" BorderPane.alignment="BOTTOM_CENTER">
                <children>
-                  <Label id="emailRegistration" text="Email:" />
-                  <TextField />
-               </children></HBox>
-            <HBox prefHeight="47.0" prefWidth="513.0">
-               <children>
-                  <Label id="passwordRegistration" text="Password:" />
-                  <TextField />
-               </children></HBox>
-            <HBox prefHeight="49.0" prefWidth="596.0">
-               <children>
-                  <Label id="verifyPasswordRegistration" text="VerifyPassword:" />
-                  <TextField />
-               </children></HBox>
-         </children></VBox>
-   </center>
-   <bottom>
-      <Button id="submitFormRegistration" mnemonicParsing="false" text="Submit" BorderPane.alignment="CENTER" />
-   </bottom>
-</BorderPane>
+                  <Button id="submitFieldRegistration" fx:id="submitButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pressSubmitButton" text="Submit">
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="errorLabel" textFill="RED">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="loginLabel" onMouseClicked="#pressloginLabel" text="If you already have an account, click here...." textFill="#0980ff">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </bottom>
+         <right>
+            <VBox prefHeight="302.0" prefWidth="130.0" BorderPane.alignment="CENTER" />
+         </right></BorderPane>
+   </children>
+</AnchorPane>

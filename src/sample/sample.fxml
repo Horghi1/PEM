@@ -11,16 +11,22 @@
     <children>
         <BorderPane prefHeight="379.0" prefWidth="554.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0">
             <center>
-                <VBox alignment="CENTER" focusTraversable="true" prefHeight="298.0" prefWidth="430.0" BorderPane.alignment="CENTER">
+                <VBox alignment="CENTER" focusTraversable="true" prefHeight="298.0" prefWidth="375.0" BorderPane.alignment="CENTER">
                     <children>
                   <Label text="Welcome">
                      <font>
                         <Font size="20.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets left="-50.0" />
+                     </VBox.margin>
                   </Label>
                   <HBox alignment="CENTER" prefHeight="45.0" prefWidth="468.0">
                      <children>
-                        <TextField fx:id="emailTextField" alignment="TOP_CENTER" prefHeight="25.0" prefWidth="342.0" />
+                        <TextField fx:id="emailTextField" alignment="TOP_CENTER" prefHeight="25.0" prefWidth="342.0">
+                           <HBox.margin>
+                              <Insets left="-50.0" />
+                           </HBox.margin></TextField>
                      </children>
                      <effect>
                         <DropShadow />
@@ -31,10 +37,16 @@
                         <PasswordField fx:id="passwordTextField" alignment="CENTER" prefHeight="25.0" prefWidth="342.0">
                            <effect>
                               <DropShadow />
-                           </effect></PasswordField>
+                           </effect>
+                           <HBox.margin>
+                              <Insets left="-50.0" />
+                           </HBox.margin></PasswordField>
                      </children>
                   </HBox>
-                        <Button fx:id="loginButton" alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pressLoginButton" text="Login" />
+                        <Button fx:id="loginButton" alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pressLoginButton" text="Login">
+                     <VBox.margin>
+                        <Insets left="-50.0" />
+                     </VBox.margin></Button>
                     </children>
                <effect>
                   <Glow />
@@ -61,10 +73,13 @@
                   </HBox>
                   <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label text="If you don't have an account, click here..." textFill="#0195ff">
+                        <Label fx:id="registerLabel" onMouseClicked="#pressRegisterLabel" text="If you don't have an account, click here..." textFill="#0195ff">
                            <font>
                               <Font size="14.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
                      </children>
                   </HBox>
@@ -76,8 +91,11 @@
                <children>
                   <Label alignment="CENTER_RIGHT" text="Email:">
                      <VBox.margin>
-                        <Insets bottom="15.0" right="-50.0" />
+                        <Insets bottom="15.0" right="-75.0" />
                      </VBox.margin>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </Label>
                   <Label alignment="CENTER_RIGHT" text="Password: ">
                      <opaqueInsets>
@@ -87,7 +105,7 @@
                         <DropShadow />
                      </effect>
                      <VBox.margin>
-                        <Insets right="-50.0" />
+                        <Insets right="-60.0" />
                      </VBox.margin>
                   </Label>
                </children>
