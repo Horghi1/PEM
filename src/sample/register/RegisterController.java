@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.User;
 import repository.UserRepositoryImpl;
 import service.UserService;
 
@@ -35,6 +36,8 @@ public class RegisterController {
     @FXML
     private Label errorLabel;
 
+    private final String LOGIN_RESOURCE_URL = "../sample.fxml";
+
     public UserService userService;
 
     public RegisterController() {
@@ -43,14 +46,7 @@ public class RegisterController {
 
     @FXML
     public void pressloginLabel() {
-        try {
-            Parent pane = FXMLLoader.load(getClass().getResource("../sample.fxml"));
-            Stage stage = (Stage) submitButton.getScene().getWindow();
-            Scene scene = new Scene(pane);
-            stage.setScene(scene);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        this.changeWindow(this.LOGIN_RESOURCE_URL);
     }
 
     @FXML
@@ -70,17 +66,17 @@ public class RegisterController {
 
         // Pasul 2
         this.errorLabel.setText("");
-        if(!checkName(firstName)) {
-            this.errorLabel.setText("Invalid first name! First name should contains just letters.");
+        if(!checkName(firstName) || firstName.length() > 45) {
+            this.errorLabel.setText("Invalid first name! First name should contains just letters and maximum 45 letters.");
             return;
         }
 
-        if(!checkName(lastName)) {
-            this.errorLabel.setText("Invalid last name! Last name should contains just letters.");
+        if(!checkName(lastName) || lastName.length() > 45) {
+            this.errorLabel.setText("Invalid last name! Last name should contains just letters and maximum 45 letters.");
             return;
         }
 
-        if(!checkEmail(email)) {
+        if(!checkEmail(email) || email.length() > 100) {
             this.errorLabel.setText("Invalid email!");
             return;
         }
@@ -101,6 +97,13 @@ public class RegisterController {
             return;
         }
 
+        // Pasul 4
+        boolean isSaved = this.userService.save(new User(firstName, lastName, email, password));
+        if(isSaved) {
+            this.changeWindow(this.LOGIN_RESOURCE_URL);
+        } else {
+            this.errorLabel.setText("The user can't be saved in database");
+        }
 
     }
 
@@ -159,6 +162,17 @@ public class RegisterController {
         }
 
         return countChar >= 1 && countDigits >= 2;
+    }
+
+    private void changeWindow(String resourceURL) {
+        try {
+            Parent pane = FXMLLoader.load(getClass().getResource(resourceURL));
+            Stage stage = (Stage) submitButton.getScene().getWindow();
+            Scene scene = new Scene(pane);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

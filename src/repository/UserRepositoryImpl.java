@@ -91,4 +91,23 @@ public class UserRepositoryImpl implements UserRepository {
 
         return null;
     }
+
+    @Override
+    public boolean save(User user) {
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO user(first_name, last_name, email, password) VALUES (?, ?, ?, ?)");
+            preparedStatement.setString(1, user.getFirstName());
+            preparedStatement.setString(2, user.getLastName());
+            preparedStatement.setString(3, user.getEmail());
+            preparedStatement.setString(4, user.getPassword());
+
+            preparedStatement.execute();
+
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
 }

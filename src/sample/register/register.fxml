@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="377.0" prefWidth="565.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.register.RegisterController">
+<AnchorPane prefHeight="455.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.register.RegisterController">
    <children>
-      <BorderPane layoutX="-1.0" layoutY="-2.0" prefHeight="379.0" prefWidth="554.0">
+      <BorderPane layoutX="-1.0" layoutY="-2.0" prefHeight="455.0" prefWidth="700.0">
          <top>
             <Label text="Registration Form" BorderPane.alignment="CENTER">
                <font>
@@ -77,7 +77,7 @@
             </VBox>
          </left>
          <center>
-            <VBox prefHeight="300.0" prefWidth="340.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="356.0" prefWidth="464.0" BorderPane.alignment="CENTER">
                <children>
                   <TextField fx:id="firstNameTextField">
                      <VBox.margin>

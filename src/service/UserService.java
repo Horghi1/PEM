@@ -1,7 +1,9 @@
 package service;
 
+import javafx.scene.control.PasswordField;
 import model.User;
 import repository.UserRepository;
+import util.PasswordHashing;
 
 public class UserService {
 
@@ -12,10 +14,13 @@ public class UserService {
     }
 
     public User loginUser(String email, String password) {
-        User user = this.userRepository.getUserByEmailAndPassword(email, password);
+        User user = this.userRepository.getUserByEmail(email);
 
         if(user != null) {
-            return user;
+            boolean passwordMatch = PasswordHashing.checkPassword(password, user.getPassword());
+            if(passwordMatch) {
+                return user;
+            }
         }
 
         return null;
@@ -23,6 +28,11 @@ public class UserService {
 
     public boolean existUser(String email) {
         return userRepository.getUserByEmail(email) != null;
+    }
+
+    public boolean save(User user) {
+        user.setPassword(PasswordHashing.hashPassword(user.getPassword()));
+        return this.userRepository.save(user);
     }
 
 }
