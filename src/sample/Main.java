@@ -14,7 +14,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("expense/expense.fxml"));
 
         UserService userService = new UserService(new UserRepositoryImpl());
 //        loader.setControllerFactory((Class<?> type) -> {

@@ -6,13 +6,23 @@ public class Expense {
 
     private int id;
     private Date date;
+    private Integer cost;
     private String type;
     private String comment;
-    private int userId;
+    private Integer userId;
 
-    public Expense(int id, Date date, String type, String comment, int userId) {
+    public Expense(int id, Date date, Integer cost, String type, String comment) {
         this.id = id;
         this.date = date;
+        this.cost = cost;
+        this.type = type;
+        this.comment = comment;
+    }
+
+    public Expense(int id, Date date, Integer cost, String type, String comment, Integer userId) {
+        this.id = id;
+        this.date = date;
+        this.cost = cost;
         this.type = type;
         this.comment = comment;
         this.userId = userId;
@@ -50,11 +60,31 @@ public class Expense {
         this.comment = comment;
     }
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public Integer getCost() {
+        return cost;
+    }
+
+    public void setCost(Integer cost) {
+        this.cost = cost;
+    }
+
+    @Override
+    public String toString() {
+        return "Expense{" +
+                "id=" + id +
+                ", date=" + date +
+                ", cost=" + cost +
+                ", type='" + type + '\'' +
+                ", comment='" + comment + '\'' +
+                ", userId=" + userId +
+                '}';
     }
 }

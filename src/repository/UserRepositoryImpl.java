@@ -1,5 +1,6 @@
 package repository;
 import model.User;
+import util.DatabaseProperties;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -8,13 +9,10 @@ import java.util.List;
 public class UserRepositoryImpl implements UserRepository {
 
     private Connection connection;
-    private final String CONNECTION_URL = "jdbc:mysql://localhost:3306/pem_schema?serverTimezone=UTC";
-    private final String CONNECTION_USER = "root";
-    private final String CONNECTION_PASS = "@Faraparola10";
 
     public UserRepositoryImpl() {
         try {
-            connection = DriverManager.getConnection(CONNECTION_URL, CONNECTION_USER, CONNECTION_PASS);
+            connection = DriverManager.getConnection(DatabaseProperties.CONNECTION_URL, DatabaseProperties.CONNECTION_USER, DatabaseProperties.CONNECTION_PASS);
         } catch (SQLException e) {
             e.printStackTrace();
         }

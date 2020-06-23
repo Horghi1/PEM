@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="275.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.expense.AddExpenseController">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="275.0">
+         <top>
+            <VBox alignment="CENTER" prefHeight="118.0" prefWidth="275.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Add New Expense">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children></VBox>
+         </top>
+         <center>
+            <VBox prefHeight="243.0" prefWidth="275.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <DatePicker fx:id="datePicker" promptText="Select Date" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ComboBox fx:id="selectTypeComboBox" prefWidth="150.0" promptText="Press to Select" />
+                     </children></HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="costField" />
+                     </children></HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="commentField" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+         <bottom>
+            <VBox alignment="CENTER" prefHeight="123.0" prefWidth="275.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="saveAddNewExpenseButton" mnemonicParsing="false" onAction="#presssaveAddNewExpenseButton" text="Save" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="errorLabel" textFill="RED">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" right="10.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children></VBox>
+         </bottom>
+         <left>
+            <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Date:">
+                     <VBox.margin>
+                        <Insets bottom="-5.0" right="10.0" top="11.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="32.0" prefWidth="100.0" />
+                  <HBox alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Type:">
+                           <HBox.margin>
+                              <Insets bottom="13.0" right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_RIGHT" prefHeight="29.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Cost:">
+                           <HBox.margin>
+                              <Insets bottom="14.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_RIGHT" prefHeight="31.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Comment:">
+                           <opaqueInsets>
+                              <Insets bottom="50.0" />
+                           </opaqueInsets>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </left>
+         <right>
+            <VBox prefHeight="168.0" prefWidth="53.0" BorderPane.alignment="CENTER" />
+         </right>
+      </BorderPane>
+   </children>
+</AnchorPane>

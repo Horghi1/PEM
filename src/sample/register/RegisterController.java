@@ -36,7 +36,7 @@ public class RegisterController {
     @FXML
     private Label errorLabel;
 
-    private final String LOGIN_RESOURCE_URL = "../sample.fxml";
+    private final String LOGIN_RESOURCE_URL = "../login/sample.fxml";
 
     public UserService userService;
 
