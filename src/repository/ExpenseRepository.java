@@ -17,4 +17,8 @@ public interface ExpenseRepository {
 
     boolean save(Date date, String type, Integer cost, String comment, Integer userId);
 
+    boolean update(int expenseId, Date date, String type, Integer cost, String comment);
+
+    boolean delete(int expenseId);
+
 }

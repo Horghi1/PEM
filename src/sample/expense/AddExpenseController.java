@@ -72,7 +72,6 @@ public class AddExpenseController implements Initializable {
         boolean inserted = this.expenseService.saveExpense(date, type, cost, comment, Context.getInstance().getUser().getId());
         if(inserted) {
             Stage stage = (Stage) selectTypeComboBox.getScene().getWindow();
-            // do what you have to do
             stage.close();
         }
     }

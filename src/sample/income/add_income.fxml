@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="275.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.expense.EditExpenseController">
+<AnchorPane prefHeight="400.0" prefWidth="275.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.income.AddIncomeController">
     <children>
         <BorderPane prefHeight="400.0" prefWidth="275.0">
             <top>
                 <VBox alignment="CENTER" prefHeight="118.0" prefWidth="275.0" BorderPane.alignment="CENTER">
                     <children>
-                        <Label text="Edit Expense">
+                        <Label text="Add Income">
                             <font>
                                 <Font size="24.0" />
                             </font>
@@ -47,12 +47,7 @@
                     <children>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                             <children>
-                                <Button fx:id="saveAddNewExpenseButton" mnemonicParsing="false" onAction="#pressSaveButton" text="Save" />
-                        <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#pressDeleteButton" text="Delete">
-                           <HBox.margin>
-                              <Insets left="10.0" right="10.0" />
-                           </HBox.margin>
-                        </Button>
+                                <Button fx:id="saveAddNewIncomeButton" mnemonicParsing="false" onAction="#pressSaveAddNewIncomeButton" text="Save" />
                             </children>
                         </HBox>
                         <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0">

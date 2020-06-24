@@ -15,8 +15,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("expense/expense.fxml"));
+        //FXMLLoader loader = new FXMLLoader(getClass().getResource("login/sample.fxml"));
 
-        UserService userService = new UserService(new UserRepositoryImpl());
 //        loader.setControllerFactory((Class<?> type) -> {
 //            try {
 //                // look for constructor taking MyService as a parameter

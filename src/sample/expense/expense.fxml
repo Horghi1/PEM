@@ -32,10 +32,6 @@
             <top>
                 <HBox alignment="CENTER" prefHeight="86.0" prefWidth="609.0" BorderPane.alignment="BOTTOM_CENTER">
                <children>
-                  <Button fx:id="addNewExpense" mnemonicParsing="false" onAction="#pressAddNewExpenseButton" text="Add New Expense">
-                     <HBox.margin>
-                        <Insets bottom="10.0" />
-                     </HBox.margin></Button>
                   <DatePicker fx:id="startDatePicker" prefWidth="100.0" promptText="Start Date">
                      <HBox.margin>
                         <Insets top="50.0" />
@@ -43,10 +39,6 @@
                   </DatePicker>
                   <VBox alignment="BOTTOM_CENTER" prefHeight="86.0" prefWidth="162.0">
                      <children>
-                        <Button fx:id="selectButton" mnemonicParsing="false" onAction="#pressSelectButton" text="Select">
-                           <VBox.margin>
-                              <Insets bottom="10.0" />
-                           </VBox.margin></Button>
                         <ComboBox fx:id="selectCategoryComboBox" prefWidth="150.0" promptText="Select Category">
                            <VBox.margin>
                               <Insets bottom="5.0" />
@@ -58,10 +50,11 @@
                         <Insets top="50.0" />
                      </HBox.margin>
                   </DatePicker>
-                  <Button fx:id="deleteExpense" mnemonicParsing="false" text="Delete Expense">
+                  <Button fx:id="selectButton" mnemonicParsing="false" onAction="#pressSelectButton" text="Select">
                      <HBox.margin>
-                        <Insets bottom="10.0" />
-                     </HBox.margin></Button>
+                        <Insets bottom="-50.0" left="5.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
                 </HBox>
             </top>
@@ -69,14 +62,29 @@
                 <HBox alignment="CENTER" prefHeight="46.0" prefWidth="609.0" spacing="30.0" BorderPane.alignment="CENTER">
                <children>
                   <Button fx:id="refreshButton" alignment="CENTER" mnemonicParsing="false" onAction="#pressRefreshButton" prefHeight="25.0" prefWidth="75.0" text="Refresh" />
-                  <Button fx:id="logOutButton" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#pressLogoutButton" text="Logout">
-                     <HBox.margin>
-                        <Insets left="150.0" />
-                     </HBox.margin>
-                  </Button>
                </children></HBox>
             </bottom>
         </BorderPane>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Exit" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Expense">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#pressAddNewExpenseMenuItem" text="Add new" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Account">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Profile" />
+                  <MenuItem mnemonicParsing="false" onAction="#pressLogoutMenuItem" text="Log out" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
     </children>
     <padding>
         <Insets left="30.0" right="30.0" />

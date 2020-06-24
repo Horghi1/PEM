@@ -1,10 +1,6 @@
 package sample.expense;
 
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.value.ObservableObjectValue;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 import model.Expense;
 import model.ExpenseTableViewModel;
 import model.User;
@@ -57,9 +52,6 @@ public class ExpenseController implements Initializable {
 
     @FXML
     private DatePicker endDatePicker;
-
-    @FXML
-    private Button addNewExpense;
 
     @FXML
     private ComboBox<String> selectCategoryComboBox;
@@ -135,7 +127,7 @@ public class ExpenseController implements Initializable {
     }
 
     @FXML
-    public void pressAddNewExpenseButton(){
+    public void pressAddNewExpenseMenuItem(){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("add_expense.fxml"));
             Parent window = loader.load();
@@ -156,7 +148,7 @@ public class ExpenseController implements Initializable {
     }
 
     @FXML
-    public void pressLogoutButton() {
+    public void pressLogoutMenuItem() {
         Context.getInstance().setUser(null);
         changeWindow("../login/sample.fxml");
     }
@@ -193,7 +185,7 @@ public class ExpenseController implements Initializable {
     private void changeWindow(String resourceURL) {
         try {
             Parent pane = FXMLLoader.load(getClass().getResource(resourceURL));
-            Stage stage = (Stage) addNewExpense.getScene().getWindow();
+            Stage stage = (Stage) expenseTable.getScene().getWindow();
             Scene scene = new Scene(pane);
             stage.setScene(scene);
         } catch (IOException e) {

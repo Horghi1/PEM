@@ -8,6 +8,7 @@ public class Context {
     private User user;
     private Expense expense;
 
+
     private static Context instance = null;
 
     private Context() {

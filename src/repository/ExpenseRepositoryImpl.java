@@ -33,7 +33,7 @@ public class ExpenseRepositoryImpl implements ExpenseRepository {
                 Date date = resultSet.getDate("date");
                 int userId = resultSet.getInt("id_user");
 
-                expenses.add(new Expense(id, date, cost, type, comment, userId));
+                expenses.add(new Expense(id, new Date(date.getTime()), cost, type, comment, userId));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -121,6 +121,43 @@ public class ExpenseRepositoryImpl implements ExpenseRepository {
             preparedStatement.setInt(3, cost);
             preparedStatement.setString(4, comment);
             preparedStatement.setInt(5, userId);
+
+            preparedStatement.execute();
+
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean update(int expenseId, Date date, String type, Integer cost, String comment) {
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE expense SET date = ?, type = ?, " +
+                    "cost = ?, comment = ? WHERE id = ?");
+            preparedStatement.setDate(1, date);
+            preparedStatement.setString(2, type);
+            preparedStatement.setInt(3, cost);
+            preparedStatement.setString(4, comment);
+            preparedStatement.setInt(5, expenseId);
+
+            preparedStatement.execute();
+
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean delete(int expenseId) {
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM expense WHERE id = ?");
+            preparedStatement.setInt(1, expenseId);
 
             preparedStatement.execute();
 

@@ -34,4 +34,12 @@ public class ExpenseService {
         return this.expenseRepository.save(date, type, cost, comment, userId);
     }
 
+    public boolean update(int expenseId, Date date, String type, Integer cost, String comment) {
+        return expenseRepository.update(expenseId, date, type, cost, comment);
+    }
+
+    public boolean delete(int expenseId) {
+        return expenseRepository.delete(expenseId);
+    }
+
 }
