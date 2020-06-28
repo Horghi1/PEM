@@ -13,7 +13,7 @@
                     <children>
                         <Label text="Edit Expense">
                             <font>
-                                <Font size="24.0" />
+                                <Font name="Baskerville Old Face" size="24.0" />
                             </font>
                         </Label>
                     </children></VBox>
@@ -28,7 +28,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                             <children>
-                                <ComboBox fx:id="selectTypeComboBox" prefWidth="150.0" promptText="Press to Select" />
+                                <ComboBox fx:id="selectTypeComboBox" prefWidth="150.0" promptText="Select category" />
                             </children></HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                             <children>

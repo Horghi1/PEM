@@ -1,7 +1,6 @@
 package sample.expense;
 
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableListBase;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -33,6 +32,8 @@ public class EditExpenseController implements Initializable {
     @FXML
     private ComboBox<String> selectTypeComboBox;
 
+    private ExpenseController expenseController;
+
     private ExpenseService expenseService;
 
     public EditExpenseController() {
@@ -41,7 +42,7 @@ public class EditExpenseController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        selectTypeComboBox.setItems(FXCollections.observableArrayList(Constants.categories));
+        selectTypeComboBox.setItems(FXCollections.observableArrayList(Constants.expenseCategories));
 
         Expense expense = Context.getInstance().getExpense();
 
@@ -63,11 +64,20 @@ public class EditExpenseController implements Initializable {
         }
 
         String type = selectTypeComboBox.getSelectionModel().getSelectedItem();
+        if(type == null || type.equals(Constants.expenseCategories[0])) {
+            errorLabel.setText("Please select category!");
+            return;
+        }
+
         String comment = commentField.getText();
 
         Integer cost = null;
         try {
             cost = new Integer(costField.getText());
+            if(cost < 0) {
+                errorLabel.setText("Cost should be a positive number");
+                return;
+            }
         } catch (NumberFormatException e) {
             errorLabel.setText("Cost should be a number");
             return;
@@ -75,6 +85,8 @@ public class EditExpenseController implements Initializable {
 
         boolean updated = expenseService.update(Context.getInstance().getExpense().getId(), date, type, cost, comment);
         if(updated) {
+            this.expenseController.pressSelectButton();
+
             Stage stage = (Stage) selectTypeComboBox.getScene().getWindow();
             stage.close();
         } else {
@@ -88,6 +100,8 @@ public class EditExpenseController implements Initializable {
 
         boolean deleted = expenseService.delete(Context.getInstance().getExpense().getId());
         if(deleted) {
+           this.expenseController.pressSelectButton();
+
             Stage stage = (Stage) selectTypeComboBox.getScene().getWindow();
             stage.close();
         } else {
@@ -96,11 +110,15 @@ public class EditExpenseController implements Initializable {
     }
 
     private int getCategoryIndex(String category) {
-        for(int i = 0; i < Constants.categories.length; i++) {
-            if (Constants.categories[i].equals(category)) {
+        for(int i = 0; i < Constants.expenseCategories.length; i++) {
+            if (Constants.expenseCategories[i].equals(category)) {
                 return i;
             }
         }
         return 0;
+    }
+
+    public void setExpenseController(ExpenseController expenseController) {
+        this.expenseController = expenseController;
     }
 }

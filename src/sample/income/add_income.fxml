@@ -13,7 +13,7 @@
                     <children>
                         <Label text="Add Income">
                             <font>
-                                <Font size="24.0" />
+                                <Font name="Baskerville Old Face" size="24.0" />
                             </font>
                         </Label>
                     </children></VBox>
@@ -32,13 +32,9 @@
                             </children></HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                             <children>
-                                <TextField fx:id="costField" />
+                                <TextField fx:id="amountField" />
                             </children></HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                            <children>
-                                <TextField fx:id="commentField" />
-                            </children>
-                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
                     </children>
                 </VBox>
             </center>
@@ -84,7 +80,7 @@
                         </HBox>
                         <HBox alignment="TOP_RIGHT" prefHeight="29.0" prefWidth="100.0">
                             <children>
-                                <Label text="Cost:">
+                                <Label text="Amount:">
                                     <HBox.margin>
                                         <Insets bottom="14.0" right="10.0" top="10.0" />
                                     </HBox.margin>
@@ -92,13 +88,6 @@
                             </children>
                         </HBox>
                         <HBox alignment="TOP_RIGHT" prefHeight="31.0" prefWidth="100.0">
-                            <children>
-                                <Label text="Comment:">
-                                    <opaqueInsets>
-                                        <Insets bottom="50.0" />
-                                    </opaqueInsets>
-                                </Label>
-                            </children>
                             <VBox.margin>
                                 <Insets right="10.0" top="10.0" />
                             </VBox.margin>

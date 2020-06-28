@@ -13,7 +13,7 @@
                <children>
                   <Label text="Add New Expense">
                      <font>
-                        <Font size="24.0" />
+                        <Font name="Baskerville Old Face" size="24.0" />
                      </font>
                   </Label>
                </children></VBox>

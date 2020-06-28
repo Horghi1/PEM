@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="455.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.profile.ProfileController">
+    <children>
+        <BorderPane layoutX="-1.0" layoutY="-2.0" prefHeight="455.0" prefWidth="700.0">
+            <top>
+                <Label text="Profile Information" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font name="Baskerville Old Face" size="32.0" />
+                    </font>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+                </Label>
+            </top>
+            <left>
+                <VBox prefHeight="302.0" prefWidth="130.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label text="First Name:">
+                            <VBox.margin>
+                                <Insets left="60.0" top="50.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font size="13.0" />
+                            </font></Label>
+                        <Label id="lastNameFieldRegistration" text="Last Name:">
+                            <VBox.margin>
+                                <Insets left="60.0" top="20.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font size="13.0" />
+                            </font></Label>
+                        <Label id="emailFieldRegistration" text="Email:">
+                            <VBox.margin>
+                                <Insets left="90.0" top="22.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font size="13.0" />
+                            </font></Label>
+                        <Label id="passwordFieldRegistration" text="Password:">
+                            <VBox.margin>
+                                <Insets left="66.0" top="21.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font size="13.0" />
+                            </font></Label>
+                        <Label id="confirmPassswordFieldRegistration" alignment="CENTER" text="New Password:">
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                            <VBox.margin>
+                                <Insets left="38.0" top="21.0" />
+                            </VBox.margin>
+                     <font>
+                        <Font size="13.0" />
+                     </font></Label>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="TOP" text="Repeat Password:">
+                     <VBox.margin>
+                        <Insets left="24.0" top="21.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets right="5.0" />
+                     </padding>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                    </children>
+                </VBox>
+            </left>
+            <center>
+                <VBox prefHeight="356.0" prefWidth="464.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <TextField fx:id="firstNameTextField">
+                            <VBox.margin>
+                                <Insets top="47.0" />
+                            </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="lastNameTextField">
+                            <VBox.margin>
+                                <Insets top="15.0" />
+                            </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="emailTextField">
+                            <VBox.margin>
+                                <Insets top="15.0" />
+                            </VBox.margin>
+                        </TextField>
+                  <PasswordField>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </PasswordField>
+                  <PasswordField>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </PasswordField>
+                  <PasswordField>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </PasswordField>
+                    </children></VBox>
+            </center>
+            <bottom>
+                <VBox alignment="CENTER" prefHeight="90.0" prefWidth="554.0" BorderPane.alignment="BOTTOM_CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Update Account" />
+                        <Button mnemonicParsing="false" text="Delete Account">
+                           <HBox.margin>
+                              <Insets left="40.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="returnLabel" alignment="CENTER_RIGHT" onMouseClicked="#pressReturnLabel" text="Click here to return" textFill="#0195ff">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin></Label>
+                     </children>
+                  </HBox>
+               </children>
+                </VBox>
+            </bottom>
+            <right>
+                <VBox prefHeight="302.0" prefWidth="130.0" BorderPane.alignment="CENTER" />
+            </right></BorderPane>
+    </children>
+</AnchorPane>

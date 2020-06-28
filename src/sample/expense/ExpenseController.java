@@ -64,7 +64,7 @@ public class ExpenseController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        selectCategoryComboBox.setItems(FXCollections.observableArrayList(Constants.categories));
+        selectCategoryComboBox.setItems(FXCollections.observableArrayList(Constants.expenseCategories));
 
         rowNumColumn.setCellValueFactory(new PropertyValueFactory<>("rowNumColumnProperty"));
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("dateColumnProperty"));
@@ -92,6 +92,10 @@ public class ExpenseController implements Initializable {
     @FXML
     public void pressSelectButton() {
         String category = selectCategoryComboBox.getSelectionModel().getSelectedItem();
+        if(category == null || category.equals(Constants.expenseCategories[0])) {
+            category = null;
+        }
+
         Date startDate = null;
         Date endDate = null;
 
@@ -137,6 +141,25 @@ public class ExpenseController implements Initializable {
             stage.show();
             stage.setMinWidth(stage.getWidth());
             stage.setMinHeight(stage.getHeight());
+
+            AddExpenseController addExpenseController = (AddExpenseController) loader.getController();
+            addExpenseController.setExpenseController(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void pressAddNewIncomeMenuItem() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../income/add_income.fxml"));
+            Parent window = loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Add new expense");
+            stage.setScene(new Scene(window, 275, 400));
+            stage.show();
+            stage.setMinWidth(stage.getWidth());
+            stage.setMinHeight(stage.getHeight());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -151,6 +174,11 @@ public class ExpenseController implements Initializable {
     public void pressLogoutMenuItem() {
         Context.getInstance().setUser(null);
         changeWindow("../login/sample.fxml");
+    }
+    @FXML
+    public void pressProfileMenuItem(){
+        Context.getInstance().setUser(null);
+        changeWindow("../profile/profile.fxml");
     }
 
     @FXML
@@ -172,14 +200,22 @@ public class ExpenseController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("edit_expense.fxml"));
             Parent window = loader.load();
             Stage stage = new Stage();
-            stage.setTitle("Add new expense");
+            stage.setTitle("Add new income");
             stage.setScene(new Scene(window, 275, 400));
             stage.show();
             stage.setMinWidth(stage.getWidth());
             stage.setMinHeight(stage.getHeight());
+
+            EditExpenseController editExpenseController = (EditExpenseController) loader.getController();
+            editExpenseController.setExpenseController(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void pressExitMenuItem() {
+        System.exit(0);
     }
 
     private void changeWindow(String resourceURL) {

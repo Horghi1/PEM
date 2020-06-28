@@ -35,6 +35,8 @@ public class AddExpenseController implements Initializable {
     @FXML
     private ComboBox<String> selectTypeComboBox;
 
+    private ExpenseController expenseController;
+
     private ExpenseService expenseService;
 
     public AddExpenseController() {
@@ -43,7 +45,7 @@ public class AddExpenseController implements Initializable {
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
-        selectTypeComboBox.setItems(FXCollections.observableArrayList(Constants.categories));
+        selectTypeComboBox.setItems(FXCollections.observableArrayList(Constants.expenseCategories));
     }
 
     @FXML
@@ -58,11 +60,19 @@ public class AddExpenseController implements Initializable {
         }
 
         String type = selectTypeComboBox.getSelectionModel().getSelectedItem();
+        if(type == null || type.equals(Constants.expenseCategories[0])) {
+            errorLabel.setText("Please select category!");
+            return;
+        }
         String comment = commentField.getText();
 
         Integer cost = null;
         try {
             cost = new Integer(costField.getText());
+            if(cost < 0) {
+                errorLabel.setText("Cost should be a positive number");
+                return;
+            }
         } catch (NumberFormatException e) {
             errorLabel.setText("Cost should be a number");
             return;
@@ -71,9 +81,15 @@ public class AddExpenseController implements Initializable {
         //insert in database
         boolean inserted = this.expenseService.saveExpense(date, type, cost, comment, Context.getInstance().getUser().getId());
         if(inserted) {
+            this.expenseController.pressSelectButton();
+
             Stage stage = (Stage) selectTypeComboBox.getScene().getWindow();
             stage.close();
         }
+    }
+
+    public void setExpenseController(ExpenseController expenseController) {
+        this.expenseController = expenseController;
     }
 }
 

@@ -69,17 +69,23 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Exit" />
+              <MenuItem mnemonicParsing="false" onAction="#pressExitMenuItem" text="Exit" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Expense">
+            <Menu mnemonicParsing="false" text="Edit">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Undo" />
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Functions">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#pressAddNewExpenseMenuItem" text="Add new" />
+                  <MenuItem mnemonicParsing="false" onAction="#pressAddNewIncomeMenuItem" text="Add new income" />
+              <MenuItem mnemonicParsing="false" onAction="#pressAddNewExpenseMenuItem" text="Add new expense" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Account">
             <items>
-              <MenuItem mnemonicParsing="false" text="Profile" />
+              <MenuItem mnemonicParsing="false" onAction="#pressProfileMenuItem" text="Profile" />
                   <MenuItem mnemonicParsing="false" onAction="#pressLogoutMenuItem" text="Log out" />
             </items>
           </Menu>
