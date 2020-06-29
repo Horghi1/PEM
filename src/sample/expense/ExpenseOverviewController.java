@@ -1,4 +1,4 @@
-package sample.profile;
+package sample.expense;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,14 +12,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ProfileController implements Initializable {
+public class ExpenseOverviewController implements Initializable {
+
     @FXML
     public Label returnLabel;
-    @FXML
-    public Label errorLabel;
-
-
-
 
     @FXML
     public void pressReturnLabel() {
@@ -40,4 +36,6 @@ public class ProfileController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     }
+
+
 }

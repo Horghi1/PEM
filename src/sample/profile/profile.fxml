@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="455.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.profile.ProfileController">
+<AnchorPane prefHeight="512.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.profile.ProfileController">
     <children>
-        <BorderPane layoutX="-1.0" layoutY="-2.0" prefHeight="455.0" prefWidth="700.0">
+        <BorderPane layoutX="-1.0" layoutY="-2.0" prefHeight="512.0" prefWidth="669.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <top>
                 <Label text="Profile Information" BorderPane.alignment="CENTER">
                     <font>
@@ -106,6 +106,14 @@
                         <Insets top="15.0" />
                      </VBox.margin>
                   </PasswordField>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="errorLabel" textFill="#fc0000">
+                           <font>
+                              <Font size="13.0" />
+                           </font></Label>
+                     </children>
+                  </HBox>
                     </children></VBox>
             </center>
             <bottom>

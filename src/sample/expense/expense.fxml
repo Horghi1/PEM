@@ -6,7 +6,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="512.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.expense.ExpenseController">
     <children>
-        <BorderPane layoutX="60.0" layoutY="130.0" prefHeight="512.0" prefWidth="669.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="0.0">
+        <BorderPane layoutX="60.0" layoutY="130.0" prefHeight="512.0" prefWidth="669.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <center>
                 <TableView fx:id="expenseTable" onMouseClicked="#onMouseClickedTableViewEvent" prefHeight="356.0" prefWidth="609.0" style="-fx-background-color: none; -fx-border-color: none;" BorderPane.alignment="CENTER">
                     <columns>
@@ -81,6 +81,7 @@
             <items>
                   <MenuItem mnemonicParsing="false" onAction="#pressAddNewIncomeMenuItem" text="Add new income" />
               <MenuItem mnemonicParsing="false" onAction="#pressAddNewExpenseMenuItem" text="Add new expense" />
+                  <MenuItem mnemonicParsing="false" onAction="#pressExpenseOverviewMenuItem" text="Expense Overview" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Account">

@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="432.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.login.LoginController">
+<AnchorPane prefHeight="512.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.login.LoginController">
     <children>
-        <BorderPane prefHeight="455.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <BorderPane prefHeight="512.0" prefWidth="669.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <center>
                 <VBox alignment="CENTER" focusTraversable="true" prefHeight="298.0" prefWidth="375.0" BorderPane.alignment="CENTER">
                     <children>
@@ -43,9 +43,9 @@
                            </HBox.margin></PasswordField>
                      </children>
                   </HBox>
-                        <Button fx:id="loginButton" alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pressLoginButton" text="Login">
+                        <Button fx:id="loginButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pressLoginButton" text="Login">
                      <VBox.margin>
-                        <Insets left="-50.0" top="20.0" />
+                        <Insets left="-60.0" top="20.0" />
                      </VBox.margin></Button>
                     </children>
                <effect>
@@ -94,7 +94,7 @@
                <children>
                   <Label alignment="CENTER_RIGHT" text="Email:">
                      <VBox.margin>
-                        <Insets bottom="25.0" right="-125.0" />
+                        <Insets bottom="35.0" right="-160.0" />
                      </VBox.margin>
                      <font>
                         <Font size="13.0" />
@@ -105,11 +105,14 @@
                         <Insets />
                      </opaqueInsets>
                      <VBox.margin>
-                        <Insets right="-105.0" />
+                        <Insets right="-140.0" />
                      </VBox.margin>
                      <font>
                         <Font size="13.0" />
                      </font>
+                     <padding>
+                        <Insets top="-10.0" />
+                     </padding>
                   </Label>
                </children>
                <BorderPane.margin>

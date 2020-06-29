@@ -164,6 +164,11 @@ public class ExpenseController implements Initializable {
             e.printStackTrace();
         }
     }
+    @FXML
+    public void pressExpenseOverviewMenuItem (){
+        Context.getInstance().setUser(null);
+        changeWindow("../expense/expense_overview.fxml");
+    }
 
     @FXML
     public void pressRefreshButton() {
