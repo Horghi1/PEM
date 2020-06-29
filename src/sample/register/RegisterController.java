@@ -11,6 +11,10 @@ import javafx.stage.Stage;
 import model.User;
 import repository.UserRepositoryImpl;
 import service.UserService;
+import util.FormValidator;
+import util.exceptions.InvalidEmailException;
+import util.exceptions.InvalidNameException;
+import util.exceptions.InvalidPasswordException;
 
 import java.io.IOException;
 
@@ -66,28 +70,15 @@ public class RegisterController {
 
         // Pasul 2
         this.errorLabel.setText("");
-        if(!checkName(firstName) || firstName.length() > 45) {
-            this.errorLabel.setText("Invalid first name! First name should contains just letters and maximum 45 letters.");
-            return;
-        }
 
-        if(!checkName(lastName) || lastName.length() > 45) {
-            this.errorLabel.setText("Invalid last name! Last name should contains just letters and maximum 45 letters.");
-            return;
-        }
-
-        if(!checkEmail(email) || email.length() > 100) {
-            this.errorLabel.setText("Invalid email!");
-            return;
-        }
-
-        if(!isValidPassword(password)) {
-            this.errorLabel.setText("Password should have at least six characters and two numbers characters ");
-            return;
-        }
-
-        if(!password.equals(confirmPassword)) {
-            this.errorLabel.setText("Invalid Password....characters are not the same");
+        try {
+            FormValidator.validateName(firstName);
+            FormValidator.validateName(lastName);
+            FormValidator.validateEmail(email);
+            FormValidator.validatePassword(password);
+            FormValidator.validatePasswords(password, confirmPassword);
+        } catch (InvalidNameException | InvalidEmailException | InvalidPasswordException e) {
+            this.errorLabel.setText(e.getMessage());
             return;
         }
 
@@ -107,62 +98,6 @@ public class RegisterController {
 
     }
 
-    private boolean checkName(String name){
-        for(int i = 0; i< name.length(); i++){
-            if((name.charAt(i) >= 'a' && name.charAt(i) <= 'z') || (name.charAt(i) >= 'A' && name.charAt(i) <= 'Z')) {
-                // do nothing
-            } else {
-                return false;
-            }
-            // echivalent cu...
-//            if(!((name.charAt(i) >= 'a' && name.charAt(i) <= 'z') || (name.charAt(i) >= 'A' && name.charAt(i) <= 'Z'))) {
-//                return false;
-//            }
-        }
-        return true;
-    }
-
-    private boolean checkEmail (String email){
-        for(int i = 0; i<email.length(); i++){
-            if((email.charAt(i) >= 'a' && email.charAt(i) <= 'z') || (email.charAt(i) >= '0' && email.charAt(i) <= '9') ||
-                    email.charAt(i) == '_' || email.charAt(i) == '.' || email.charAt(i) == '@') {
-                //do nothing
-            } else {
-                return false;
-            }
-        }
-
-        if(!email.contains("@")) {
-            return false;
-        }
-
-        if(!email.contains(".")) {
-            return false;
-        }
-
-        return true;
-    }
-
-    private boolean isValidPassword(String password) {
-        if (password.length() < 6) {
-            return false;
-        }
-
-        int countChar = 0;
-        int countDigits = 0;
-        for (int i = 0; i < password.length(); i++) {
-            char ch = password.charAt(i);
-            if (ch >= '0' && ch <= '9') {
-                countDigits++;
-            } else if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
-                countChar++;
-            } else {
-                return false;
-            }
-        }
-
-        return countChar >= 1 && countDigits >= 2;
-    }
 
     private void changeWindow(String resourceURL) {
         try {

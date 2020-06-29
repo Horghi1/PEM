@@ -44,6 +44,29 @@ public class UserRepositoryImpl implements UserRepository {
         return users;
     }
 
+    @Override
+    public User getUserById(int id) {
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM user WHERE id = ?");
+            preparedStatement.setInt(1, id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()) {
+                String firstName = resultSet.getString("first_name");
+                String lastName = resultSet.getString("last_name");
+                String email = resultSet.getString("email");
+                String password = resultSet.getString("password");
+
+                User user = new User(id, firstName, lastName, email, password);
+                return user;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
     public User getUserByEmailAndPassword(String email, String password) {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM user WHERE email=? AND password=?");
@@ -98,6 +121,27 @@ public class UserRepositoryImpl implements UserRepository {
             preparedStatement.setString(2, user.getLastName());
             preparedStatement.setString(3, user.getEmail());
             preparedStatement.setString(4, user.getPassword());
+
+            preparedStatement.execute();
+
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean update(User user) {
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE user SET first_name = ?, " +
+                    "last_name = ?, email = ?, password = ? WHERE id = ?");
+            preparedStatement.setString(1, user.getFirstName());
+            preparedStatement.setString(2, user.getLastName());
+            preparedStatement.setString(3, user.getEmail());
+            preparedStatement.setString(4, user.getPassword());
+            preparedStatement.setInt(5, user.getId());
 
             preparedStatement.execute();
 

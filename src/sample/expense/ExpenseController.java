@@ -72,7 +72,7 @@ public class ExpenseController implements Initializable {
         costColumn.setCellValueFactory(new PropertyValueFactory<>("costColumnProperty"));
         commentColumn.setCellValueFactory(new PropertyValueFactory<>("commentColumnProperty"));
 
-        Context.getInstance().setUser(new User(8, "daniel", "oana", "laksjd", "dklajds"));
+       // Context.getInstance().setUser(new User(8, "daniel", "oana", "laksjd", "dklajds"));
         expenseTable.getItems().setAll(getItemsToAdd(expenseService.getAllExpensesByUserId(Context.getInstance().getUser().getId())));
     }
 
@@ -166,8 +166,7 @@ public class ExpenseController implements Initializable {
     }
     @FXML
     public void pressExpenseOverviewMenuItem (){
-        Context.getInstance().setUser(null);
-        changeWindow("../expense/expense_overview.fxml");
+        changeWindow("../statistics/expense_overview.fxml");
     }
 
     @FXML
@@ -182,7 +181,6 @@ public class ExpenseController implements Initializable {
     }
     @FXML
     public void pressProfileMenuItem(){
-        Context.getInstance().setUser(null);
         changeWindow("../profile/profile.fxml");
     }
 

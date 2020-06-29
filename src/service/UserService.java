@@ -13,6 +13,10 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    public User getUserById(int id) {
+        return this.userRepository.getUserById(id);
+    }
+
     public User loginUser(String email, String password) {
         User user = this.userRepository.getUserByEmail(email);
 
@@ -33,6 +37,10 @@ public class UserService {
     public boolean save(User user) {
         user.setPassword(PasswordHashing.hashPassword(user.getPassword()));
         return this.userRepository.save(user);
+    }
+
+    public boolean update(User user) {
+        return this.userRepository.update(user);
     }
 
 }

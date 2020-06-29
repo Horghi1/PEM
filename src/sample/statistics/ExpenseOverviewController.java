@@ -1,4 +1,4 @@
-package sample.expense;
+package sample.statistics;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
