@@ -118,6 +118,23 @@ public class ProfileController implements Initializable {
     }
 
     @FXML
+    public void pressDeleteAccountButton() {
+        String password = oldPasswordTextField.getText();
+        if(!PasswordHashing.checkPassword(password, Context.getInstance().getUser().getPassword())) {
+            this.errorLabel.setText("Incorect Password");
+            return;
+        }
+
+        boolean deleted = this.userService.delete(Context.getInstance().getUser().getId());
+        if(deleted) {
+            changeWindow("../login/sample.fxml");
+        } else {
+            this.errorLabel.setText("User can't be deleted!");
+        }
+    }
+
+
+    @FXML
     public void pressReturnLabel() {
         changeWindow("../expense/expense.fxml");
     }

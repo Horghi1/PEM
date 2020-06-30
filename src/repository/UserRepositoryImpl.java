@@ -152,4 +152,20 @@ public class UserRepositoryImpl implements UserRepository {
 
         return false;
     }
+
+    @Override
+    public boolean delete(int id) {
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM user WHERE id = ?");
+            preparedStatement.setInt(1, id);
+
+            preparedStatement.execute();
+
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
 }

@@ -3,7 +3,7 @@ package repository;
 import model.Expense;
 import util.DatabaseProperties;
 
-import javax.xml.transform.Result;
+import javax.swing.plaf.nimbus.State;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -40,6 +40,29 @@ public class ExpenseRepositoryImpl implements ExpenseRepository {
         }
 
         return expenses;
+    }
+
+    @Override
+    public Expense getExpenseById(int id) {
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM expense WHERE id = ?");
+            preparedStatement.setInt(1, id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()) {
+                Integer cost = resultSet.getInt("cost");
+                String type = resultSet.getString("type");
+                String comment = resultSet.getString("comment");
+                Date date = resultSet.getDate("date");
+                int userId = resultSet.getInt("id_user");
+
+                return new Expense(id, new Date(date.getTime()), cost, type, comment, userId);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
     @Override
@@ -113,23 +136,39 @@ public class ExpenseRepositoryImpl implements ExpenseRepository {
     }
 
     @Override
-    public boolean save(Date date, String type, Integer cost, String comment, Integer userId) {
+    public Expense save(Expense expense) {
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO expense(date, type, cost, comment, id_user) VALUES (?, ?, ?, ?, ?)");
-            preparedStatement.setDate(1, date, Calendar.getInstance());
-            preparedStatement.setString(2, type);
-            preparedStatement.setInt(3, cost);
-            preparedStatement.setString(4, comment);
-            preparedStatement.setInt(5, userId);
+            int columnIndex = 1;
+            PreparedStatement preparedStatement;
 
-            preparedStatement.execute();
+            if(expense.getId() != null) {
+                preparedStatement = connection.prepareStatement("INSERT INTO expense(id, date, type, cost, comment, id_user) VALUES (?, ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+                preparedStatement.setInt(columnIndex++, expense.getId());
+            } else {
+                preparedStatement = connection.prepareStatement("INSERT INTO expense(date, type, cost, comment, id_user) VALUES (?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+            }
 
-            return true;
+            preparedStatement.setDate(columnIndex++, expense.getDate(), Calendar.getInstance());
+            preparedStatement.setString(columnIndex++, expense.getType());
+            preparedStatement.setInt(columnIndex++, expense.getCost());
+            preparedStatement.setString(columnIndex++, expense.getComment());
+            preparedStatement.setInt(columnIndex++, expense.getUserId());
+
+            preparedStatement.executeUpdate();
+
+            if(expense.getId() == null) {
+                ResultSet resultSet = preparedStatement.getGeneratedKeys();
+                if(resultSet.next()) {
+                    expense.setId(resultSet.getInt(1));
+                }
+            }
+
+            return expense;
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return false;
+        return null;
     }
 
     @Override

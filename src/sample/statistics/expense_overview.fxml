@@ -59,7 +59,7 @@
                                     <Font size="13.0" />
                                  </font>
                               </Label>
-                              <TextField>
+                              <TextField fx:id="incomeTextField" editable="false">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin></TextField>
@@ -68,7 +68,7 @@
                                     <Font size="13.0" />
                                  </font>
                               </Label>
-                              <TextField />
+                              <TextField fx:id="outcomeTextField" editable="false" />
                            </children>
                            <HBox.margin>
                               <Insets right="5.0" top="20.0" />
@@ -81,13 +81,13 @@
                                     <Font size="13.0" />
                                  </font>
                               </Label>
-                              <TextField />
+                              <TextField fx:id="savingTextField" editable="false" />
                               <Label text="Saving Rate:">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
                               </Label>
-                              <TextField />
+                              <TextField fx:id="savingRateTextField" editable="false" />
                            </children>
                            <HBox.margin>
                               <Insets left="5.0" top="20.0" />
@@ -99,7 +99,7 @@
                      </padding></HBox>
                   <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER" text="Total Expense and Income Rate">
+                        <Label alignment="CENTER" text="Total Expenses and Income Rate">
                            <font>
                               <Font name="Baskerville Old Face" size="20.0" />
                            </font>
@@ -115,7 +115,7 @@
                                     <Font size="13.0" />
                                  </font>
                               </Label>
-                              <TextField>
+                              <TextField fx:id="totalIncomeTextField" editable="false">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin></TextField>
@@ -124,7 +124,7 @@
                                     <Font size="13.0" />
                                  </font>
                               </Label>
-                              <TextField />
+                              <TextField fx:id="totalOutcomesTextField" editable="false" />
                            </children>
                            <HBox.margin>
                               <Insets right="5.0" top="20.0" />
@@ -137,13 +137,13 @@
                                     <Font size="13.0" />
                                  </font>
                               </Label>
-                              <TextField />
+                              <TextField fx:id="totalSavingsTextField" editable="false" />
                               <Label text="Total Savings Rate:">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
                               </Label>
-                              <TextField />
+                              <TextField fx:id="totalSavingsRate" editable="false" />
                            </children>
                            <HBox.margin>
                               <Insets left="5.0" top="20.0" />

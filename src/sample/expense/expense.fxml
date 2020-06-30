@@ -74,7 +74,7 @@
           </Menu>
             <Menu mnemonicParsing="false" text="Edit">
               <items>
-                <MenuItem mnemonicParsing="false" text="Undo" />
+                <MenuItem mnemonicParsing="false" onAction="#pressUndoMenuItem" text="Undo" />
               </items>
             </Menu>
           <Menu mnemonicParsing="false" text="Functions">

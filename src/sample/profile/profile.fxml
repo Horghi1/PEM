@@ -122,7 +122,7 @@
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pressUpdateButton" text="Update Account" />
-                        <Button mnemonicParsing="false" text="Delete Account">
+                        <Button mnemonicParsing="false" onAction="#pressDeleteAccountButton" text="Delete Account">
                            <HBox.margin>
                               <Insets left="40.0" />
                            </HBox.margin>

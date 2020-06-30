@@ -43,4 +43,8 @@ public class UserService {
         return this.userRepository.update(user);
     }
 
+    public boolean delete(int id) {
+        return this.userRepository.delete(id);
+    }
+
 }

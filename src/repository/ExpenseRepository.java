@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface ExpenseRepository {
 
+    Expense getExpenseById(int id);
+
     List<Expense> getAllExpensesByUserId(int userId);
 
     List<Expense> getExpensesByDate(int userId, Date startDate, Date endDate);
@@ -15,7 +17,7 @@ public interface ExpenseRepository {
 
     List<Expense> getExpensesByType(int userId, String type);
 
-    boolean save(Date date, String type, Integer cost, String comment, Integer userId);
+    Expense save(Expense expense);
 
     boolean update(int expenseId, Date date, String type, Integer cost, String comment);
 
