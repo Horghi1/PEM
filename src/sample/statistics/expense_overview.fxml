@@ -9,7 +9,7 @@
    <children>
       <BorderPane prefHeight="512.0" prefWidth="669.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="BOTTOM_CENTER">
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="BOTTOM_CENTER">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" text="Expenses Overview">
                      <font>
@@ -19,7 +19,7 @@
             </HBox>
          </top>
          <bottom>
-            <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
                   <Label fx:id="returnLabel" alignment="BOTTOM_RIGHT" contentDisplay="BOTTOM" onMouseClicked="#pressReturnLabel" text="Click here to return" textFill="#0195ff">
                      <HBox.margin>
@@ -39,7 +39,7 @@
          <center>
             <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0">
+                  <HBox alignment="BOTTOM_CENTER" prefHeight="50.0" prefWidth="200.0">
                      <children>
                         <DatePicker promptText="Start Date" />
                         <Button mnemonicParsing="false" text="Select">
@@ -50,31 +50,109 @@
                         <DatePicker promptText="End Date" />
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                  <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label text="Income:">
+                        <VBox prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Income:">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <TextField>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin></TextField>
+                              <Label text="Outcome:">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <TextField />
+                           </children>
                            <HBox.margin>
-                              <Insets right="5.0" />
+                              <Insets right="5.0" top="20.0" />
                            </HBox.margin>
-                        </Label>
-                        <TextField prefWidth="100.0" />
-                        <Label text="Outcome:">
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Saving:">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <TextField />
+                              <Label text="Saving Rate:">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <TextField />
+                           </children>
                            <HBox.margin>
-                              <Insets left="5.0" right="5.0" />
+                              <Insets left="5.0" top="20.0" />
                            </HBox.margin>
-                        </Label>
-                        <TextField prefWidth="100.0" />
-                        <Label text="Savings:">
-                           <HBox.margin>
-                              <Insets left="5.0" right="5.0" />
-                           </HBox.margin>
-                        </Label>
-                        <TextField alignment="CENTER" prefWidth="100.0" />
+                        </VBox>
                      </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" />
-                  <HBox prefHeight="100.0" prefWidth="200.0" />
-                  <HBox prefHeight="100.0" prefWidth="200.0" />
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding></HBox>
+                  <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER" text="Total Expense and Income Rate">
+                           <font>
+                              <Font name="Baskerville Old Face" size="20.0" />
+                           </font>
+                        </Label>
+                     </children></HBox>
+                  <Separator prefWidth="200.0" />
+                  <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Total Income:">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <TextField>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin></TextField>
+                              <Label text="Total Outcomes:">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <TextField />
+                           </children>
+                           <HBox.margin>
+                              <Insets right="5.0" top="20.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Total Savings:">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <TextField />
+                              <Label text="Total Savings Rate:">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <TextField />
+                           </children>
+                           <HBox.margin>
+                              <Insets left="5.0" top="20.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding></HBox>
                </children>
             </VBox>
          </center>

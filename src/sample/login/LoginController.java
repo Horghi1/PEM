@@ -31,6 +31,9 @@ public class LoginController {
     @FXML
     private Label errorLabel;
 
+    @FXML
+    private Button onEnterKeyPressedLoginButton;
+
     private UserService userService;
 
     public LoginController() {
@@ -48,6 +51,7 @@ public class LoginController {
             errorLabel.setText("Please complete all fields!");
             return;
         }
+
 
         User user = userService.loginUser(email, password);
         if(user != null) {

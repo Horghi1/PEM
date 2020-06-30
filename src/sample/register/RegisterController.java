@@ -50,7 +50,7 @@ public class RegisterController {
 
     @FXML
     public void pressloginLabel() {
-        this.changeWindow(this.LOGIN_RESOURCE_URL);
+        changeWindow("../login/sample.fxml");
     }
 
     @FXML
