@@ -48,9 +48,6 @@
                            </font>
                         </Label>
                         <PasswordField fx:id="passwordTextField" alignment="CENTER" prefHeight="25.0" prefWidth="342.0">
-                           <effect>
-                              <DropShadow />
-                           </effect>
                            <HBox.margin>
                               <Insets />
                            </HBox.margin></PasswordField>

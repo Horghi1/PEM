@@ -39,7 +39,7 @@ public class ExpenseService {
         return expenseRepository.getExpensesByType(userId, type);
     }
 
-    public boolean saveExpense(Date date, String type, Integer cost, String comment, Integer userId) {
+    public boolean saveExpense(Date date, String type, Double cost, String comment, Integer userId) {
         Expense savedExpense = this.expenseRepository.save(new Expense(date, cost, type, comment, userId));
 
         if(savedExpense != null) {
@@ -50,7 +50,7 @@ public class ExpenseService {
         return false;
     }
 
-    public boolean update(int expenseId, Date date, String type, Integer cost, String comment) {
+    public boolean update(int expenseId, Date date, String type, Double cost, String comment) {
         Expense oldExpense = this.getExpenseById(expenseId);
 
         boolean updated = expenseRepository.update(expenseId, date, type, cost, comment);

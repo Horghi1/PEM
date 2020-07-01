@@ -6,12 +6,12 @@ public class Expense {
 
     private Integer id;
     private Date date;
-    private Integer cost;
+    private Double cost;
     private String type;
     private String comment;
     private Integer userId;
 
-    public Expense(Date date, Integer cost, String type, String comment, int userId) {
+    public Expense(Date date, Double cost, String type, String comment, int userId) {
         this.date = date;
         this.cost = cost;
         this.type = type;
@@ -19,7 +19,7 @@ public class Expense {
         this.userId = userId;
     }
 
-    public Expense(int id, Date date, Integer cost, String type, String comment) {
+    public Expense(int id, Date date, Double cost, String type, String comment) {
         this.id = id;
         this.date = date;
         this.cost = cost;
@@ -27,7 +27,7 @@ public class Expense {
         this.comment = comment;
     }
 
-    public Expense(int id, Date date, Integer cost, String type, String comment, Integer userId) {
+    public Expense(int id, Date date, Double cost, String type, String comment, Integer userId) {
         this.id = id;
         this.date = date;
         this.cost = cost;
@@ -76,11 +76,11 @@ public class Expense {
         this.userId = userId;
     }
 
-    public Integer getCost() {
+    public Double getCost() {
         return cost;
     }
 
-    public void setCost(Integer cost) {
+    public void setCost(Double cost) {
         this.cost = cost;
     }
 

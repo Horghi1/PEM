@@ -27,7 +27,7 @@ public class ExpenseRepositoryImpl implements ExpenseRepository {
         try {
             while(resultSet.next()) {
                 int id = resultSet.getInt("id");
-                Integer cost = resultSet.getInt("cost");
+                Double cost = resultSet.getDouble("cost");
                 String type = resultSet.getString("type");
                 String comment = resultSet.getString("comment");
                 Date date = resultSet.getDate("date");
@@ -50,7 +50,7 @@ public class ExpenseRepositoryImpl implements ExpenseRepository {
 
             ResultSet resultSet = preparedStatement.executeQuery();
             if(resultSet.next()) {
-                Integer cost = resultSet.getInt("cost");
+                Double cost = resultSet.getDouble("cost");
                 String type = resultSet.getString("type");
                 String comment = resultSet.getString("comment");
                 Date date = resultSet.getDate("date");
@@ -150,7 +150,7 @@ public class ExpenseRepositoryImpl implements ExpenseRepository {
 
             preparedStatement.setDate(columnIndex++, expense.getDate(), Calendar.getInstance());
             preparedStatement.setString(columnIndex++, expense.getType());
-            preparedStatement.setInt(columnIndex++, expense.getCost());
+            preparedStatement.setDouble(columnIndex++, expense.getCost());
             preparedStatement.setString(columnIndex++, expense.getComment());
             preparedStatement.setInt(columnIndex++, expense.getUserId());
 
@@ -172,13 +172,13 @@ public class ExpenseRepositoryImpl implements ExpenseRepository {
     }
 
     @Override
-    public boolean update(int expenseId, Date date, String type, Integer cost, String comment) {
+    public boolean update(int expenseId, Date date, String type, Double cost, String comment) {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE expense SET date = ?, type = ?, " +
                     "cost = ?, comment = ? WHERE id = ?");
             preparedStatement.setDate(1, date);
             preparedStatement.setString(2, type);
-            preparedStatement.setInt(3, cost);
+            preparedStatement.setDouble(3, cost);
             preparedStatement.setString(4, comment);
             preparedStatement.setInt(5, expenseId);
 

@@ -4,11 +4,9 @@ package sample.income;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import repository.IncomeRepositoryImpl;
 import service.IncomeService;
 import util.Constants;
@@ -16,6 +14,7 @@ import util.Context;
 
 import java.net.URL;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class AddIncomeController implements Initializable {
@@ -40,6 +39,23 @@ public class AddIncomeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Callback<DatePicker, DateCell> callB = new Callback<DatePicker, DateCell>() {
+            @Override
+            public DateCell call(final DatePicker param) {
+                return new DateCell() {
+                    @Override
+                    public void updateItem(LocalDate item, boolean empty) {
+                        super.updateItem(item, empty); //To change body of generated methods, choose Tools | Templates.
+                        LocalDate today = LocalDate.now();
+                        setDisable(empty || item.compareTo(today) > 0);
+                    }
+
+                };
+            }
+
+        };
+        datePicker.setDayCellFactory(callB);
+
         selectTypeComboBox.setItems(FXCollections.observableArrayList(Constants.incomeCategories));
     }
 
@@ -61,9 +77,9 @@ public class AddIncomeController implements Initializable {
         }
 
 
-        Integer amount = null;
+        Double amount = null;
         try {
-            amount = new Integer(amountField.getText());
+            amount = new Double(amountField.getText());
             if(amount < 0) {
                 errorLabel.setText("Amount should be a positive number");
                 return;

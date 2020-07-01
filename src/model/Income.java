@@ -1,17 +1,21 @@
 package model;
 
+import java.sql.Date;
+
 public class Income {
 
     private int id;
     private String type;
-    private int amount;
+    private double amount;
     private int userId;
+    private Date date;
 
-    public Income(int id, String type, int amount, int userId) {
+    public Income(int id, String type, double amount, int userId, Date date) {
         this.id = id;
         this.type = type;
         this.amount = amount;
         this.userId = userId;
+        this.date = date;
     }
 
     public int getId() {
@@ -30,11 +34,11 @@ public class Income {
         this.type = type;
     }
 
-    public int getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 
@@ -44,5 +48,13 @@ public class Income {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

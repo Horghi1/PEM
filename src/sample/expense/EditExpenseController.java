@@ -71,9 +71,9 @@ public class EditExpenseController implements Initializable {
 
         String comment = commentField.getText();
 
-        Integer cost = null;
+        Double cost = null;
         try {
-            cost = new Integer(costField.getText());
+            cost = new Double(costField.getText());
             if(cost < 0) {
                 errorLabel.setText("Cost should be a positive number");
                 return;

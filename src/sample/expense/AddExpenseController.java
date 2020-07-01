@@ -3,11 +3,9 @@ package sample.expense;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import repository.ExpenseRepositoryImpl;
 import service.ExpenseService;
 import util.Constants;
@@ -15,6 +13,7 @@ import util.Context;
 
 import java.net.URL;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 
@@ -45,6 +44,23 @@ public class AddExpenseController implements Initializable {
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
+        Callback<DatePicker, DateCell> callB = new Callback<DatePicker, DateCell>() {
+            @Override
+            public DateCell call(final DatePicker param) {
+                return new DateCell() {
+                    @Override
+                    public void updateItem(LocalDate item, boolean empty) {
+                        super.updateItem(item, empty); //To change body of generated methods, choose Tools | Templates.
+                        LocalDate today = LocalDate.now();
+                        setDisable(empty || item.compareTo(today) > 0);
+                    }
+
+                };
+            }
+
+        };
+        datePicker.setDayCellFactory(callB);
+
         selectTypeComboBox.setItems(FXCollections.observableArrayList(Constants.expenseCategories));
     }
 
@@ -66,9 +82,9 @@ public class AddExpenseController implements Initializable {
         }
         String comment = commentField.getText();
 
-        Integer cost = null;
+        Double cost = null;
         try {
-            cost = new Integer(costField.getText());
+            cost = new Double(costField.getText());
             if(cost < 0) {
                 errorLabel.setText("Cost should be a positive number");
                 return;

@@ -19,7 +19,7 @@ public interface ExpenseRepository {
 
     Expense save(Expense expense);
 
-    boolean update(int expenseId, Date date, String type, Integer cost, String comment);
+    boolean update(int expenseId, Date date, String type, Double cost, String comment);
 
     boolean delete(int expenseId);
 

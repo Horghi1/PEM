@@ -1,5 +1,6 @@
 package model;
 
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -11,13 +12,13 @@ public class ExpenseTableViewModel {
 
     private final SimpleStringProperty dateColumnProperty = new SimpleStringProperty("");
 
-    private final SimpleIntegerProperty costColumnProperty = new SimpleIntegerProperty(0);
+    private final SimpleDoubleProperty costColumnProperty = new SimpleDoubleProperty(0);
 
     private final SimpleStringProperty typeColumnProperty = new SimpleStringProperty("");
 
     private final SimpleStringProperty commentColumnProperty = new SimpleStringProperty("");
 
-    public ExpenseTableViewModel(Integer rowNum, Integer id, String date, Integer cost, String type, String comment) {
+    public ExpenseTableViewModel(Integer rowNum, Integer id, String date, Double cost, String type, String comment) {
         this.setRowNumColumnProperty(rowNum);
         this.setIdColumnProperty(id);
         this.setDateColumnProperty(date);
@@ -62,15 +63,15 @@ public class ExpenseTableViewModel {
         this.dateColumnProperty.set(dateColumnProperty);
     }
 
-    public int getCostColumnProperty() {
+    public double getCostColumnProperty() {
         return costColumnProperty.get();
     }
 
-    public SimpleIntegerProperty costColumnPropertyProperty() {
+    public SimpleDoubleProperty costColumnPropertyProperty() {
         return costColumnProperty;
     }
 
-    public void setCostColumnProperty(int costColumnProperty) {
+    public void setCostColumnProperty(Double costColumnProperty) {
         this.costColumnProperty.set(costColumnProperty);
     }
 

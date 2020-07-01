@@ -6,16 +6,31 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import repository.ExpenseRepositoryImpl;
+import repository.IncomeRepositoryImpl;
+import service.ExpenseService;
+import service.IncomeService;
+import service.StatisticsService;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ExpenseOverviewController implements Initializable {
+public class StatisticsController implements Initializable {
+
+    @FXML
+    private TextField totalIncomeTextField;
 
     @FXML
     public Label returnLabel;
+
+    private StatisticsService statisticsService;
+
+    public StatisticsController() {
+        this.statisticsService = new StatisticsService(new ExpenseService(new ExpenseRepositoryImpl()), new IncomeService(new IncomeRepositoryImpl()));
+    }
 
     @FXML
     public void pressReturnLabel() {
@@ -35,6 +50,7 @@ public class ExpenseOverviewController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        totalIncomeTextField.setText(statisticsService.getTotalIncome().toString());
     }
 
 

@@ -72,7 +72,7 @@ public class ExpenseController implements Initializable {
         costColumn.setCellValueFactory(new PropertyValueFactory<>("costColumnProperty"));
         commentColumn.setCellValueFactory(new PropertyValueFactory<>("commentColumnProperty"));
 
-        //Context.getInstance().setUser(new User(8, "daniel", "oana", "laksjd", "dklajds"));
+        Context.getInstance().setUser(new User(11, "florin", "horghidan", "florinhorghidan@yahoo.com", "$2a$12$dnVv9PLa4y25.EkPYMAidOPTR79OSwWM/z9EKKcex4Xxm/wR7Nmaa"));
         expenseTable.getItems().setAll(getItemsToAdd(expenseService.getAllExpensesByUserId(Context.getInstance().getUser().getId())));
     }
 
@@ -155,7 +155,7 @@ public class ExpenseController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../income/add_income.fxml"));
             Parent window = loader.load();
             Stage stage = new Stage();
-            stage.setTitle("Add new expense");
+            stage.setTitle("Add new income");
             stage.setScene(new Scene(window, 275, 400));
             stage.show();
             stage.setMinWidth(stage.getWidth());
@@ -166,7 +166,7 @@ public class ExpenseController implements Initializable {
     }
     @FXML
     public void pressExpenseOverviewMenuItem (){
-        changeWindow("../statistics/expense_overview.fxml");
+        changeWindow("../statistics/statistics.fxml");
     }
 
     @FXML
@@ -203,7 +203,7 @@ public class ExpenseController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("edit_expense.fxml"));
             Parent window = loader.load();
             Stage stage = new Stage();
-            stage.setTitle("Add new income");
+            stage.setTitle("Edit expense");
             stage.setScene(new Scene(window, 275, 400));
             stage.show();
             stage.setMinWidth(stage.getWidth());
@@ -219,6 +219,7 @@ public class ExpenseController implements Initializable {
     @FXML
     public void pressUndoMenuItem() {
         this.expenseService.undo();
+        this.pressRefreshButton();
     }
 
     @FXML
