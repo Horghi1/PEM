@@ -41,13 +41,13 @@
                <children>
                   <HBox alignment="BOTTOM_CENTER" prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <DatePicker promptText="Start Date" />
-                        <Button mnemonicParsing="false" text="Select">
+                        <DatePicker fx:id="startDatePicker" promptText="Start Date" />
+                        <Button mnemonicParsing="false" onAction="#pressSelectButton" text="Select">
                            <HBox.margin>
                               <Insets left="5.0" right="5.0" />
                            </HBox.margin>
                         </Button>
-                        <DatePicker promptText="End Date" />
+                        <DatePicker fx:id="endDatePicker" promptText="End Date" />
                      </children>
                   </HBox>
                   <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
