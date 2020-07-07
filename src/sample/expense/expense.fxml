@@ -15,7 +15,7 @@
                         <TableColumn fx:id="dateColumn" prefWidth="100.0" resizable="false" text="Date" />
                         <TableColumn fx:id="typeColumn" prefWidth="100.0" resizable="false" text="Type" />
                         <TableColumn fx:id="costColumn" prefWidth="100.0" resizable="false" text="Cost" />
-                        <TableColumn fx:id="commentColumn" prefWidth="280.0" resizable="false" text="Comment" />
+                        <TableColumn fx:id="commentColumn" prefWidth="336.0" resizable="false" text="Comment" />
                     </columns>
                     <contextMenu>
                         <ContextMenu>
@@ -82,6 +82,7 @@
                   <MenuItem mnemonicParsing="false" onAction="#pressAddNewIncomeMenuItem" text="Add new income" />
               <MenuItem mnemonicParsing="false" onAction="#pressAddNewExpenseMenuItem" text="Add new expense" />
                   <MenuItem mnemonicParsing="false" onAction="#pressExpenseOverviewMenuItem" text="Expense Overview" />
+                  <MenuItem mnemonicParsing="false" onAction="#pressIncomeOverviewMenuItem" text="Income Overview" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Account">

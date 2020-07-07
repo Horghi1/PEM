@@ -99,7 +99,7 @@
                      </padding></HBox>
                   <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER" text="Total Expenses and Income Rate">
+                        <Label alignment="CENTER" text="Total Income and Outcome">
                            <font>
                               <Font name="Baskerville Old Face" size="20.0" />
                            </font>

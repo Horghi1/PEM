@@ -14,6 +14,7 @@ import model.ExpenseTableViewModel;
 import model.User;
 import repository.ExpenseRepositoryImpl;
 import service.ExpenseService;
+import service.IncomeService;
 import util.Constants;
 import util.Context;
 
@@ -167,6 +168,11 @@ public class ExpenseController implements Initializable {
     @FXML
     public void pressExpenseOverviewMenuItem (){
         changeWindow("../statistics/statistics.fxml");
+    }
+
+    @FXML
+    public void pressIncomeOverviewMenuItem (){
+        changeWindow("../income/income_overview.fxml");
     }
 
     @FXML
