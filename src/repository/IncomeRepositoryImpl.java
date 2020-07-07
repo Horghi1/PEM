@@ -88,4 +88,52 @@ public class IncomeRepositoryImpl implements IncomeRepository {
         return false;
     }
 
+    @Override
+    public List<Income> getAllByDatesAndType(Date startDate, Date endDate, String type, int userId) {
+        List<Income> incomeList = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM income WHERE id_user = ? and date >= ? and date <= ? and type = ?");
+            preparedStatement.setInt(1, userId);
+            preparedStatement.setDate(2, startDate, Calendar.getInstance());
+            preparedStatement.setDate(3, endDate, Calendar.getInstance());
+            preparedStatement.setString(4, type);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int incomeId = resultSet.getInt("id");
+                int amount = resultSet.getInt("amount");
+                Date date = resultSet.getDate("date");
+
+                incomeList.add(new Income(incomeId, type, amount, userId, date));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return incomeList;
+    }
+
+    @Override
+    public List<Income> getIncomeByType(String type, int userId) {
+        List<Income> incomeList = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM income WHERE id_user = ? and type = ?");
+            preparedStatement.setInt(1, userId);
+            preparedStatement.setString(2, type);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int incomeId = resultSet.getInt("id");
+                int amount = resultSet.getInt("amount");
+                Date date = resultSet.getDate("date");
+
+                incomeList.add(new Income(incomeId, type, amount, userId, date));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return incomeList;
+    }
+
 }

@@ -13,4 +13,8 @@ public interface IncomeRepository {
 
     boolean save(Date date, String type, Double amount, Integer userId);
 
+    List<Income> getAllByDatesAndType(Date startDate, Date endDate, String type, int userId);
+
+    List<Income> getIncomeByType(String type, int userId);
+
 }

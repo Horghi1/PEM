@@ -23,7 +23,7 @@
          </children></HBox>
         <BorderPane layoutX="60.0" layoutY="130.0" prefHeight="512.0" prefWidth="669.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <center>
-                <TableView fx:id="incomeTable" prefHeight="356.0" prefWidth="609.0" style="-fx-background-color: none; -fx-border-color: none;" BorderPane.alignment="CENTER">
+                <TableView fx:id="incomeTable" onMouseClicked="#onMouseClickedTableViewEvent" prefHeight="356.0" prefWidth="609.0" style="-fx-background-color: none; -fx-border-color: none;" BorderPane.alignment="CENTER">
                     <columns>
                         <TableColumn fx:id="dataViewField" prefWidth="75.0" text="Data View" visible="false" />
                         <TableColumn fx:id="rowNumColumn" maxWidth="43.0" prefWidth="32.0" resizable="false" text="#" />
@@ -61,7 +61,7 @@
                                 <Insets top="70.0" />
                             </HBox.margin>
                         </DatePicker>
-                        <Button fx:id="selectButton" mnemonicParsing="false" text="Select">
+                        <Button fx:id="selectButton" mnemonicParsing="false" onAction="#pressSelectButton" text="Select">
                             <HBox.margin>
                                 <Insets bottom="-70.0" left="5.0" />
                             </HBox.margin>

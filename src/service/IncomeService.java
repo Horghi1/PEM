@@ -25,4 +25,12 @@ public class IncomeService {
     public List<Income> getAllByDatesAndUserId(Date startDate, Date endDate, int userId) {
         return this.incomeRepository.getAllByDatesAndUserId(startDate, endDate, userId);
     }
+
+    public List<Income> getAllByDatesAndType(Date startDate, Date endDate, String type, int userId) {
+        return this.incomeRepository.getAllByDatesAndType(startDate, endDate, type, userId);
+    }
+
+    public List<Income> getIncomeByType(String type, int userId) {
+        return this.incomeRepository.getIncomeByType(type, userId);
+    }
 }

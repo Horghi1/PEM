@@ -1,13 +1,14 @@
 package util;
 
 import model.Expense;
+import model.Income;
 import model.User;
 
 public class Context {
 
     private User user;
     private Expense expense;
-
+    private Income income;
 
     private static Context instance = null;
 
@@ -36,5 +37,13 @@ public class Context {
 
     public void setExpense(Expense expense) {
         this.expense = expense;
+    }
+
+    public Income getIncome() {
+        return income;
+    }
+
+    public void setIncome(Income income) {
+        this.income = income;
     }
 }
