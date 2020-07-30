@@ -75,7 +75,7 @@
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="180.0" />
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="373.0">
                      <children>
-                        <Button fx:id="refreshButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Refresh" />
+                        <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#pressRefreshButton" prefHeight="25.0" prefWidth="75.0" text="Refresh" />
                      </children></HBox>
                   <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="180.0">
                      <children>

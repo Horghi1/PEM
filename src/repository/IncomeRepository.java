@@ -17,4 +17,8 @@ public interface IncomeRepository {
 
     List<Income> getIncomeByType(String type, int userId);
 
+    boolean update(int id, Date date, String type, double amount);
+
+    boolean delete(int id);
+
 }

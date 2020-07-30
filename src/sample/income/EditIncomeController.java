@@ -10,6 +10,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Expense;
 import model.Income;
+import repository.IncomeRepositoryImpl;
+import service.IncomeService;
 import util.Constants;
 import util.Context;
 
@@ -32,6 +34,12 @@ public class EditIncomeController implements Initializable {
     private ComboBox<String> selectTypeComboBox;
 
     private IncomeOverviewController incomeOverviewController;
+
+    private IncomeService incomeService;
+
+    public EditIncomeController() {
+        this.incomeService = new IncomeService(new IncomeRepositoryImpl());
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -65,10 +73,10 @@ public class EditIncomeController implements Initializable {
             return;
         }
 
-        Double cost = null;
+        Double amount = null;
         try {
-            cost = new Double(amountField.getText());
-            if(cost < 0) {
+            amount = new Double(amountField.getText());
+            if(amount < 0) {
                 errorLabel.setText("Amount should be a positive number");
                 return;
             }
@@ -77,30 +85,30 @@ public class EditIncomeController implements Initializable {
             return;
         }
 
-        boolean updated = incomeService.update(Context.getInstance().getExpense().getId(), date, type, cost, comment);
+        boolean updated = incomeService.update(Context.getInstance().getIncome().getId(), date, type, amount);
         if(updated) {
-            this.expenseController.pressSelectButton();
+            this.incomeOverviewController.pressSelectButton();
 
             Stage stage = (Stage) selectTypeComboBox.getScene().getWindow();
             stage.close();
         } else {
-            errorLabel.setText("Expense cannot be updated");
+            errorLabel.setText("Income cannot be updated");
         }
     }
 
     @FXML
     public void pressDeleteButton() {
-//        errorLabel.setText("");
-//
-//        boolean deleted = expenseService.delete(Context.getInstance().getExpense().getId());
-//        if(deleted) {
-//            this.expenseController.pressSelectButton();
-//
-//            Stage stage = (Stage) selectTypeComboBox.getScene().getWindow();
-//            stage.close();
-//        } else {
-//            errorLabel.setText("Expense cannot be deleted");
-//        }
+        errorLabel.setText("");
+
+        boolean deleted = incomeService.delete(Context.getInstance().getIncome().getId());
+        if(deleted) {
+            this.incomeOverviewController.pressSelectButton();
+
+            Stage stage = (Stage) selectTypeComboBox.getScene().getWindow();
+            stage.close();
+        } else {
+            errorLabel.setText("Income cannot be deleted");
+        }
     }
 
     private int getTypeIndex(String type) {

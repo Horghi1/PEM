@@ -33,4 +33,12 @@ public class IncomeService {
     public List<Income> getIncomeByType(String type, int userId) {
         return this.incomeRepository.getIncomeByType(type, userId);
     }
+
+    public boolean update(int id, Date date, String type, double amount) {
+        return this.incomeRepository.update(id, date, type, amount);
+    }
+
+    public boolean delete(int id) {
+        return this.incomeRepository.delete(id);
+    }
 }

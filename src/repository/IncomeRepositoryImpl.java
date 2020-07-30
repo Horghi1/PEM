@@ -136,4 +136,40 @@ public class IncomeRepositoryImpl implements IncomeRepository {
         return incomeList;
     }
 
+    @Override
+    public boolean update(int id, Date date, String type, double amount) {
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE income SET date = ?, type = ?, " +
+                    "amount = ? WHERE id = ?");
+            preparedStatement.setDate(1, date);
+            preparedStatement.setString(2, type);
+            preparedStatement.setDouble(3, amount);
+            preparedStatement.setInt(4, id);
+
+            preparedStatement.execute();
+
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean delete(int id) {
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM income WHERE id = ?");
+            preparedStatement.setInt(1, id);
+
+            preparedStatement.execute();
+
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
 }

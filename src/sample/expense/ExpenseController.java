@@ -73,7 +73,7 @@ public class ExpenseController implements Initializable {
         costColumn.setCellValueFactory(new PropertyValueFactory<>("costColumnProperty"));
         commentColumn.setCellValueFactory(new PropertyValueFactory<>("commentColumnProperty"));
 
-        Context.getInstance().setUser(new User(11, "florin", "horghidan", "florinhorghidan@yahoo.com", "$2a$12$dnVv9PLa4y25.EkPYMAidOPTR79OSwWM/z9EKKcex4Xxm/wR7Nmaa"));
+        //Context.getInstance().setUser(new User(11, "florin", "horghidan", "florinhorghidan@yahoo.com", "$2a$12$dnVv9PLa4y25.EkPYMAidOPTR79OSwWM/z9EKKcex4Xxm/wR7Nmaa"));
         expenseTable.getItems().setAll(getItemsToAdd(expenseService.getAllExpensesByUserId(Context.getInstance().getUser().getId())));
     }
 
