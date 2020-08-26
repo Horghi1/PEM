@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_pem" default="compile.module.pem">
+  <dirname property="module.pem.basedir" file="${ant.file.module_pem}"/>
+  
+  <property name="module.jdk.home.pem" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.pem" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.pem" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.pem" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="pem.output.dir" value="${module.pem.basedir}/out/production/PEM"/>
+  <property name="pem.testoutput.dir" value="${module.pem.basedir}/out/test/PEM"/>
+  
+  <path id="pem.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="pem.module.production.classpath">
+    <path refid="${module.jdk.classpath.pem}"/>
+    <pathelement location="${basedir}/JAR/mysql-connector-java-8.0.19.jar"/>
+  </path>
+  
+  <path id="pem.runtime.production.module.classpath">
+    <pathelement location="${pem.output.dir}"/>
+    <pathelement location="${basedir}/JAR/mysql-connector-java-8.0.19.jar"/>
+  </path>
+  
+  <path id="pem.module.classpath">
+    <path refid="${module.jdk.classpath.pem}"/>
+    <pathelement location="${pem.output.dir}"/>
+    <pathelement location="${basedir}/JAR/mysql-connector-java-8.0.19.jar"/>
+  </path>
+  
+  <path id="pem.runtime.module.classpath">
+    <pathelement location="${pem.testoutput.dir}"/>
+    <pathelement location="${pem.output.dir}"/>
+    <pathelement location="${basedir}/JAR/mysql-connector-java-8.0.19.jar"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.pem">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.pem">
+    <patternset refid="excluded.from.module.pem"/>
+  </patternset>
+  
+  <path id="pem.module.sourcepath">
+    <dirset dir="${module.pem.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.pem" depends="compile.module.pem.production,compile.module.pem.tests" description="Compile module PEM"/>
+  
+  <target name="compile.module.pem.production" depends="register.custom.compilers" description="Compile module PEM; production classes">
+    <mkdir dir="${pem.output.dir}"/>
+    <javac2 destdir="${pem.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.pem}/javac">
+      <compilerarg line="${compiler.args.pem}"/>
+      <bootclasspath refid="pem.module.bootclasspath"/>
+      <classpath refid="pem.module.production.classpath"/>
+      <src refid="pem.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.pem"/>
+    </javac2>
+    
+    <copy todir="${pem.output.dir}">
+      <fileset dir="${module.pem.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.pem.tests" depends="register.custom.compilers,compile.module.pem.production" description="compile module PEM; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.pem" description="cleanup module">
+    <delete dir="${pem.output.dir}"/>
+    <delete dir="${pem.testoutput.dir}"/>
+  </target>
+</project>
