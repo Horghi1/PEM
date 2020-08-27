@@ -43,15 +43,11 @@ of daily and monthly expenses but also the saving rate.
 
 ![Income Overview](https://user-images.githubusercontent.com/60060379/91422537-96525b80-e857-11ea-9bf4-119ecee4279e.jpg)
 
-* **Expense Overview**
-
-![Expense Overview](https://user-images.githubusercontent.com/60060379/91422600-acf8b280-e857-11ea-9be8-65ff50d44855.jpg)
-
 * **Add New Expense**
 
 ![Add New Expense](https://user-images.githubusercontent.com/60060379/91422654-c00b8280-e857-11ea-9144-e7de6ef00c8c.jpg)
 
-* **General Income/Expense Overview And Saving Rate**
+* **Expense Overview**
 
 ![General](https://user-images.githubusercontent.com/60060379/91422944-27c1cd80-e858-11ea-8fc3-c796baf727f6.jpg)
 
