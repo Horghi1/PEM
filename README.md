@@ -2,9 +2,9 @@
 
 ### This is a training purpose project.
  
-With PEM you can easily manage your expenses._
-It's simple and intuitive appearance allows you to quickly get an overview 
-of daily and monthly expenses but also the saving rate.
+* With PEM you can easily manage your expenses.
+* It's simple and intuitive appearance allows you to quickly get an overview 
+  of daily and monthly expenses but also the saving rate.
 
 
 # Tools & Technologies
