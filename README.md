@@ -1,10 +1,10 @@
 # PEM  - Private Expense Manager
-This is a training purpose project.
 
-
-
-
-
+ ## *** This is a training purpose project. ***
+ 
+With PEM you can easily manage your expenses.
+Its simple and intuitive appearance allows you to quickly get an overview 
+of daily and monthly expenses but also the saving rate.
 
 
 # Tools & Technologies
