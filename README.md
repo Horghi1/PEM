@@ -8,10 +8,10 @@ This is a training purpose project.
 
 
 # Tools & Technologies
-	Back-End: Java	
-	Front-End: FXML
-	Framework: JavaFX
-	Database: MySQL
+*	Back-End: Java	
+*	Front-End: FXML
+*	Framework: JavaFX
+*	Database: MySQL
 
 
 # Functionalities
