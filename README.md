@@ -9,7 +9,6 @@
 
 # Tools & Technologies
 *	Back-End: Java	
-*	Front-End: FXML
 *	Framework: JavaFX
 *	Database: MySQL
 
