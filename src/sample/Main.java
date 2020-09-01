@@ -37,7 +37,7 @@ public class Main extends Application {
 
         Parent root = loader.load();
         primaryStage.setTitle("PEM");
-        primaryStage.setScene(new Scene(root, 700, 455));
+        primaryStage.setScene(new Scene(root, 729, 512));
         primaryStage.show();
         primaryStage.setMinWidth(primaryStage.getWidth());
         primaryStage.setMinHeight(primaryStage.getHeight());
