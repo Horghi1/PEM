@@ -52,7 +52,8 @@
 
 * **UML Diagram**
 
-![UML Diagram](https://user-images.githubusercontent.com/60060379/91423069-563fa880-e858-11ea-989b-5e2dc75b7c71.png)
+![UML Diagram](https://user-images.githubusercontent.com/60060379/91701757-09b9dd00-eb78-11ea-9273-370780f7ac78.png)
+
 
 
 
